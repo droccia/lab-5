@@ -55,12 +55,21 @@ public class MatrizAdyacenciaTest {
 
 	@Test
 	public void contarRelacionesTest() {
-
+		matriz.agregarElemento(2, 3);
+		matriz.agregarElemento(1, 4);
+		matriz.agregarElemento(1, 2);
+		assertEquals(3, matriz.getCantidadElementos(), "Las relaciones no coinciden con la cantidad de elementos");
 	}
 
 	@Test
 	public void existenTodosLosElementoTest() {
+		matriz.cargarPosicionesMatriz();
 
+		for (int x = 0; x < TAMAÑO_MATRIZ - 1; x++) {
+			for (int y = 1; y < TAMAÑO_MATRIZ - 1; y++) {
+				assertEquals(matriz.existeElemento(x, y), matriz.existeElemento(y, x));
+			}
+		}
 	}
 
 	@ParameterizedTest

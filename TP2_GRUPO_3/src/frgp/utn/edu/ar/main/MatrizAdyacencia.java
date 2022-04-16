@@ -40,4 +40,15 @@ public class MatrizAdyacencia {
 		cont = cont/2;
 		return cont;
 	}
+	
+	public void cargarPosicionesMatriz() {
+		_ady[0][0] = true;
+		_ady[cantElementos - 1][cantElementos - 1] = true;
+
+		for (int i = 0; i < cantElementos; i++) {
+			for (int j = 1; j < cantElementos; j++) {
+				agregarElemento(i, j);
+			}
+		}
+	}
 }
