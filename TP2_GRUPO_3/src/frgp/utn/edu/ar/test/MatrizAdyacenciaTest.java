@@ -2,6 +2,8 @@ package frgp.utn.edu.ar.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -96,9 +98,11 @@ public class MatrizAdyacenciaTest {
 		assertNotEquals(excepcionEsperada, null);
 	}
 
-	@Test
+	@Test()
 	public void agregarElementoFueraRangoTest() {
-
+		Assertions.assertThrows(Exception.class, () -> {
+			matriz.agregarElemento(11, 12);
+		});
 	}
 
 }
