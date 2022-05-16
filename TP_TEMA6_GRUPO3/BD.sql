@@ -1,40 +1,46 @@
-create table nacionalidad
-(
-     nacionalidad_id number constraint nacionalidad_id_nn not null, constraint nacionalidad_id_pk primary key (nacionalidad_id),
-     descripcion varchar2(50)
+create database if not exists bd_tp3;
+use bd_tp3;
+create table if not exists nacionalidad (
+  nacionalidad_id int(11),
+  descripcion varchar(50) default null,
+  primary key (nacionalidad_id)
 );
-create table autor
+create table if not exists autor
 (
-     autor_id number constraint autor_id_nn not null, constraint autor_id_pk primary key (autor_id),
-     nombre varchar2(50),
-     apellido varchar2(50),
-     nacionalidad_id number,
-     email varchar2(250),
-     constraint nacionalidad_fk foreign key (nacionalidad_id) references nacionalidad (nacionalidad_id)
+     autor_id int(11),
+     nombre varchar(50),
+     apellido varchar(50),
+     nacionalidad_id int(11),
+     email varchar(250),
+     primary key (autor_id),
+     foreign key (nacionalidad_id) references nacionalidad (nacionalidad_id)
 );
-create table genero
+create table if not exists genero
 (
-     genero_id number constraint genero_id_nn not null, constraint genero_id_pk primary key (genero_id),
-     descripcion varchar2(50)
+     genero_id int(11),
+     descripcion varchar(50),
+     primary key (genero_id)
 );
-create table libro
+create table if not exists libro
 (
-     isbn number constraint isbn_nn not null, constraint isbn_pk primary key (isbn),
-     titulo varchar2(50),
-     fecha_lanzamiento date,
-     idioma varchar2(50),
-     cantidad_paginas number,
-	 autor_id number,
-	 descripcion varchar2(250),
-	 genero_id number,
-	 constraint autor_fk foreign key (autor_id) references autor (autor_id),
-     constraint genero_fk foreign key (genero_id) references genero (genero_id)
+     isbn int(11),
+     titulo varchar(50),
+     fecha_lanzamiento datetime,
+     idioma varchar(50),
+     cantidad_paginas int(11),
+	 autor_id int(11),
+	 descripcion varchar(250),
+	 genero_id int(11),
+     primary key (isbn),
+     foreign key (autor_id) references autor (autor_id),
+	 foreign key (genero_id) references genero (genero_id)
 );
-create table biblioteca
+create table if not exists biblioteca
 (
-     biblioteca_id number constraint biblioteca_id_nn not null, constraint biblioteca_id_pk primary key (biblioteca_id),
-     isbn number,
-     fecha_alta date,
-     estado number,
-	 constraint biblioteca_fk foreign key (isbn) references libro (isbn)
+     biblioteca_id int(11),
+     isbn int(11),
+     fecha_alta datetime,
+     estado int(11),
+     primary key (biblioteca_id),
+	 foreign key (isbn) references libro (isbn)
  );
