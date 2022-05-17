@@ -1,6 +1,7 @@
 package frgp.utn.edu.ar.entidad;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -21,13 +22,13 @@ public class Biblioteca implements Serializable {
 	@JoinColumn(name="idLibro")
 	private Libro libro;
 	
-	private String fechaAlta;
+	private Date fechaAlta;
 	
-	private Boolean estado;
+	private int estado;
 	
 	public Biblioteca() {}
 	
-	public Biblioteca(int id, Libro libro, String fechaAlta, Boolean estado) {
+	public Biblioteca(int id, Libro libro, Date fechaAlta, int estado) {
 		super();
 		this.id = id;
 		this.libro = libro;
@@ -51,19 +52,19 @@ public class Biblioteca implements Serializable {
 		this.libro = libro;
 	}
 
-	public String getFechaAlta() {
+	public Date getFechaAlta() {
 		return fechaAlta;
 	}
 
-	public void setFechaAlta(String fechaAlta) {
+	public void setFechaAlta(Date fechaAlta) {
 		this.fechaAlta = fechaAlta;
 	}
 
-	public Boolean getEstado() {
+	public int getEstado() {
 		return estado;
 	}
 
-	public void setEstado(Boolean estado) {
+	public void setEstado(int estado) {
 		this.estado = estado;
 	}
 

@@ -1,6 +1,10 @@
 package frgp.utn.edu.ar.entidad;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -18,11 +22,11 @@ public class Libro implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ISBN;
+	private int isbn;
 	
 	private String titulo;
 	
-	private String fechaLanzamiento;
+	private Date fechaLanzamiento;
 	
 	private String idioma;
 	
@@ -41,28 +45,30 @@ public class Libro implements Serializable {
 	    inverseJoinColumns=
 	        @JoinColumn(name="id_genero")
     )
-	private Set <Genero> genero;
+	private Set <Genero> generos;
 	
-	public Libro(){}
+	public Libro(){
+		this.generos = new HashSet<Genero>();
+	}
 	
-	public Libro(int iSBN, String titulo, String fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
-			String descripcion, Set<Genero> genero) {
-		ISBN = iSBN;
+	public Libro(int isbn, String titulo, Date fechaLanzamiento, String idioma, int cantidadPaginas, Autor autor,
+			String descripcion, Set<Genero> generos) {
+		this.isbn = isbn;
 		this.titulo = titulo;
 		this.fechaLanzamiento = fechaLanzamiento;
 		this.idioma = idioma;
 		this.cantidadPaginas = cantidadPaginas;
 		this.autor = autor;
 		this.descripcion = descripcion;
-		this.genero = genero;
+		this.generos = generos;
 	}
 
-	public int getISBN() {
-		return ISBN;
+	public int getIsbn() {
+		return isbn;
 	}
 	
-	public void setISBN(int iSBN) {
-		ISBN = iSBN;
+	public void setIsbn(int iSBN) {
+		isbn = iSBN;
 	}
 	
 	public String getTitulo() {
@@ -73,11 +79,11 @@ public class Libro implements Serializable {
 		this.titulo = titulo;
 	}
 	
-	public String getFechaLanzamiento() {
+	public Date getFechaLanzamiento() {
 		return fechaLanzamiento;
 	}
 	
-	public void setFechaLanzamiento(String fechaLanzamiento) {
+	public void setFechaLanzamiento(Date fechaLanzamiento) {
 		this.fechaLanzamiento = fechaLanzamiento;
 	}
 	
@@ -113,11 +119,15 @@ public class Libro implements Serializable {
 		this.descripcion = descripcion;
 	}
 
-	public Set<Genero> getGenero() {
-		return genero;
+	public Set<Genero> getGeneros() {
+		return generos;
 	}
 
-	public void setGenero(Set<Genero> genero) {
-		this.genero = genero;
+	public void setGeneros(Set<Genero> generos) {
+		this.generos = generos;
+	}
+	
+	public void agregarGenero(Genero genero) {
+		this.generos.add(genero);
 	}
 }

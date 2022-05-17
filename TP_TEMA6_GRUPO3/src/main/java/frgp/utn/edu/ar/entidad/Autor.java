@@ -50,7 +50,7 @@ public class Autor implements Serializable {
 	}
 
 	public void setNombre(String nombre) {
-		nombre = nombre;
+		this.nombre = nombre;
 	}
 
 	public String getApellido() {
