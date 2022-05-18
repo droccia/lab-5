@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar;
+package test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

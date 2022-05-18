@@ -9,12 +9,12 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/BDbiblioteca?createDatabaseIfNotExist=true</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
-        <mapping class="frgp.utn.edu.ar.entidad.Libro"></mapping>
-        <mapping class="frgp.utn.edu.ar.entidad.Genero"></mapping>
-        <mapping class="frgp.utn.edu.ar.entidad.Autor"></mapping>
-        <mapping class="frgp.utn.edu.ar.entidad.Nacionalidad"></mapping>
-        <mapping class="frgp.utn.edu.ar.entidad.Biblioteca"></mapping>
+        <mapping class="dominio.Libro"></mapping>
+        <mapping class="dominio.Genero"></mapping>
+        <mapping class="dominio.Autor"></mapping>
+        <mapping class="dominio.Nacionalidad"></mapping>
+        <mapping class="dominio.Biblioteca"></mapping>
     </session-factory>
 </hibernate-configuration>

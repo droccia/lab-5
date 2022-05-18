@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.entidad;
+package dominio;
 
 import java.io.Serializable;
 
@@ -10,6 +10,11 @@ import javax.persistence.Id;
 @Entity
 public class Genero implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

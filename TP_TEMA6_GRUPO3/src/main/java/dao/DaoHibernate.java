@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.dao;
+package dao;
 
 import java.io.Serializable;
 
@@ -27,9 +27,9 @@ public class DaoHibernate<T extends Serializable> {
 		ConfigHibernate config = new ConfigHibernate();
 		Session session= config.abrirConexion();
 		session.beginTransaction();
-        T usuario = (T) session.get(entityClass, id);
+        T entity = (T) session.get(entityClass, id);
         config.cerrarSession();
-        return usuario;
+        return entity;
 	}
 	
 	public T update(T entity)

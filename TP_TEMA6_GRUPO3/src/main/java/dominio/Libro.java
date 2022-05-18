@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.entidad;
+package dominio;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,6 +20,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Libro implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int isbn;

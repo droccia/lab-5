@@ -1,4 +1,4 @@
-package frgp.utn.edu.ar.entidad;
+package dominio;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +14,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Biblioteca implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -70,7 +75,7 @@ public class Biblioteca implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Biblioteca [id=" + id + ", libro=" + libro + 
-				", fechaAlta=" + fechaAlta + ", estado=" + estado + "]";
+		return "\nId =" + id + "\nlibro =" + libro.getDescripcion() + 
+				"\nfechaAlta =" + fechaAlta + "\nestado =" + estado + "\n";
 	}
 }
