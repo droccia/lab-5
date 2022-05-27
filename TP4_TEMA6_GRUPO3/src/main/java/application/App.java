@@ -7,8 +7,9 @@ public class App
 {
     public static void main(String[] args)
     {
-    	DaoInsert insert = new DaoInsert();
-    	insert.insert();
+    	
+    	//DaoInsert insert = new DaoInsert();
+    	//insert.insert();
     	
 	    DaoSelect select = new DaoSelect();
 	    select.punto1();

@@ -16,7 +16,7 @@ public class DaoSelect {
 	
 	//Mostrar todos los libros ordenados según ISBN de mayor a menor.
 	public void punto1() {
-		List<Libro> list = (List<Libro>)(Object)hql.selectAllRow("FROM Libro order by isbn asc");
+		List<Libro> list = (List<Libro>)(Object)hql.selectAllRow("FROM Libro order by isbn desc");
 		
 		for (Libro libro : list) {
 			System.out.println(libro.toString());
@@ -28,13 +28,12 @@ public class DaoSelect {
 		List<Biblioteca> list = (List<Biblioteca>)(Object)hql.selectAllRow("FROM Biblioteca where estado = 2");
 		
 		for (Biblioteca biblioteca : list) {
-			System.out.println(biblioteca.getLibro().toString());
+			System.out.println(biblioteca.GetDatosPunto2());
 		}
 	}
 	
 	//Mostrar todos los autores que sean de nacionalidad Argentina
 	public void punto3() {
-		
 	}
 	
 	//Mostrar el libro con ISBN 12345 junto con todos sus géneros 

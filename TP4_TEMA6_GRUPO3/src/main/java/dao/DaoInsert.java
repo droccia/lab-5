@@ -188,19 +188,23 @@ public class DaoInsert {
     	l.setCantidadPaginas(100);
     	l.setDescripcion("Antinovela");
     	l.agregarGenero(this.clasesDao.getGeneroDao().readOne(1));
+    	l.agregarGenero(this.clasesDao.getGeneroDao().readOne(2));
     	l.setIdioma("Español");
     	l.setTitulo("Rayuela");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(2));
     	l.setCantidadPaginas(300);
     	l.setDescripcion("Antinovela");
     	l.agregarGenero(this.clasesDao.getGeneroDao().readOne(4));
+    	l.agregarGenero(this.clasesDao.getGeneroDao().readOne(5));
     	l.setIdioma("Español");
     	l.setTitulo("El tunel");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(3));
     	l.setCantidadPaginas(200);
@@ -210,6 +214,7 @@ public class DaoInsert {
     	l.setTitulo("veinte poemas de amor y una cancion desesperada");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(4));
     	l.setCantidadPaginas(250);
@@ -219,6 +224,7 @@ public class DaoInsert {
     	l.setTitulo("El sueño de los heroes");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(5));
     	l.setCantidadPaginas(181);
@@ -228,15 +234,17 @@ public class DaoInsert {
     	l.setTitulo("El libro de arena");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(11));
-    	l.setCantidadPaginas(181);
+    	l.setCantidadPaginas(185);
     	l.setDescripcion("Tragedia");
     	l.agregarGenero(this.clasesDao.getGeneroDao().readOne(5));
     	l.setIdioma("Español");
     	l.setTitulo("Hamlet");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(11));
     	l.setCantidadPaginas(181);
@@ -246,6 +254,7 @@ public class DaoInsert {
     	l.setTitulo("Romeo y Julieta");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(11));
     	l.setCantidadPaginas(181);
@@ -255,6 +264,7 @@ public class DaoInsert {
     	l.setTitulo("El mercader de Venecia");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(9));
     	l.setCantidadPaginas(181);
@@ -264,6 +274,7 @@ public class DaoInsert {
     	l.setTitulo("El renacuajo paseador");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(6));
     	l.setCantidadPaginas(181);
@@ -273,6 +284,7 @@ public class DaoInsert {
     	l.setTitulo("El matadero");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(6));
     	l.setCantidadPaginas(181);
@@ -282,6 +294,7 @@ public class DaoInsert {
     	l.setTitulo("La cautiva");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(8));
     	l.setCantidadPaginas(181);
@@ -291,6 +304,7 @@ public class DaoInsert {
     	l.setTitulo("El Gaucho Martín Fierro");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(8));
     	l.setCantidadPaginas(181);
@@ -300,6 +314,7 @@ public class DaoInsert {
     	l.setTitulo("El Gaucho Martín Fierro");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(10));
     	l.setCantidadPaginas(181);
@@ -309,6 +324,7 @@ public class DaoInsert {
     	l.setTitulo("Anna");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(12));
     	l.setCantidadPaginas(181);
@@ -318,6 +334,7 @@ public class DaoInsert {
     	l.setTitulo("Gitanjali");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
     	
+    	l = new Libro();
     	l.setFechaLanzamiento(new Date());
     	l.setAutor(this.clasesDao.getAutorDao().readOne(13));
     	l.setCantidadPaginas(181);
@@ -326,7 +343,6 @@ public class DaoInsert {
     	l.setIdioma("Español");
     	l.setTitulo("La montaña del alma");
     	l.setIsbn(this.clasesDao.getLibroDao().create(l));
-    	
 	}
 	
 	public void addBiblioteca() {
