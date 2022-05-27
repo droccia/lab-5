@@ -337,7 +337,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(2));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -347,7 +347,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(4));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -357,7 +357,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(6));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -372,7 +372,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(9));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -382,7 +382,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(11));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -392,7 +392,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(13));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
@@ -402,7 +402,7 @@ public class DaoInsert {
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
     	
-    	b.setEstado(1);
+    	b.setEstado(2);
     	b.setLibro(this.clasesDao.getLibroDao().readOne(15));
     	b.setFechaAlta(new Date());
     	b.setId(this.clasesDao.getBibliotecaDao().create(b));
