@@ -46,6 +46,6 @@ public class Genero implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Genero [id=" + id + ", descripcion=" + descripcion + "]";
+		return "\nGenero [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 }

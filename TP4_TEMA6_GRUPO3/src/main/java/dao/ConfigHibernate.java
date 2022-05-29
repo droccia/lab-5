@@ -7,17 +7,24 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 public class ConfigHibernate {
-
+    private static ConfigHibernate instance;
 	private SessionFactory sessionFactory;
 	private Session session;
 
-	public ConfigHibernate()
+	private ConfigHibernate()
 	{
 		Configuration configuration = new Configuration();
         configuration.configure();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 	}
+	
+	public static ConfigHibernate getInstance() {
+        if (instance == null) {
+            instance = new ConfigHibernate();
+        }
+        return instance;
+    }
 	
 	public Session abrirConexion()
 	{
@@ -28,7 +35,6 @@ public class ConfigHibernate {
 	public void cerrarSession()
 	{
 		session.close();
-		cerrarSessionFactory();
 	}
 	
 	

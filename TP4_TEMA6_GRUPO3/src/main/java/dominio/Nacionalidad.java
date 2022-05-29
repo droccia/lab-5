@@ -47,6 +47,6 @@ public class Nacionalidad implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Nacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
+		return "\nNacionalidad [id=" + id + ", descripcion=" + descripcion + "]";
 	}
 }

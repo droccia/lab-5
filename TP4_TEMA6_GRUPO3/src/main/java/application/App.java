@@ -1,23 +1,19 @@
 package application;
 
-import dao.DaoInsert;
-import dao.DaoSelect;
+import dao.ConfigHibernate;
 
 public class App 
 {
     public static void main(String[] args)
     {
-    	
-    	//DaoInsert insert = new DaoInsert();
-    	//insert.insert();
-    	
-	    DaoSelect select = new DaoSelect();
-	    select.punto1();
-	    select.punto2();
-	    //select.punto3();
-	    //select.punto4();
-	    //select.punto5();
-	    //select.punto6();
+	    Consignas consignas = new Consignas();
+	    MockData.create().insert();
+	    consignas.punto1();
+	    consignas.punto2();
+	    consignas.punto3();
+	    consignas.punto4();
+	    //consignas.punto5();
+	    //consignas.punto6();
+	    ConfigHibernate.getInstance().cerrarSessionFactory();
     }
-
 }

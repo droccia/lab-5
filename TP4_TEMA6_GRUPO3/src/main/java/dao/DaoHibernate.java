@@ -1,6 +1,7 @@
 package dao;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.hibernate.Session;
 
@@ -13,7 +14,7 @@ public class DaoHibernate<T extends Serializable> {
 
 	public int create(T entity)
 	{
-		ConfigHibernate ch = new ConfigHibernate();
+		ConfigHibernate ch = ConfigHibernate.getInstance();
 		Session session= ch.abrirConexion();
 		session.beginTransaction();
 	    int id = (Integer) session.save(entity);
@@ -24,7 +25,7 @@ public class DaoHibernate<T extends Serializable> {
 	
 	public T readOne(int id)
 	{
-		ConfigHibernate config = new ConfigHibernate();
+		ConfigHibernate config = ConfigHibernate.getInstance();
 		Session session= config.abrirConexion();
 		session.beginTransaction();
         T entity = (T) session.get(entityClass, id);
@@ -34,7 +35,7 @@ public class DaoHibernate<T extends Serializable> {
 	
 	public T update(T entity)
 	{
-		ConfigHibernate config = new ConfigHibernate();
+		ConfigHibernate config = ConfigHibernate.getInstance();
 		Session session= config.abrirConexion();
         session.beginTransaction();
         session.update(entity);
@@ -45,13 +46,29 @@ public class DaoHibernate<T extends Serializable> {
 	
 	public void delete(T entity)
 	{
-		
-		ConfigHibernate config = new ConfigHibernate();
+		ConfigHibernate config = ConfigHibernate.getInstance();
 		Session session= config.abrirConexion();
         session.beginTransaction();
         session.delete(entity);
         session.getTransaction().commit();
         config.cerrarSession();
+	}
+	
+	public List<T> selectList(String query){
+		ConfigHibernate config = ConfigHibernate.getInstance();
+		Session session= config.abrirConexion();
+		session.beginTransaction();
+		List<T> list = session.createQuery("FROM " + entityClass.getName() + " " + query).list();
+        config.cerrarSession();
+        return list;
+	}
 
+	public T selectUnique(String query) {
+		ConfigHibernate config = ConfigHibernate.getInstance();
+		Session session= config.abrirConexion();
+		session.beginTransaction();
+        T entity = (T) session.createQuery("FROM " + entityClass.getName() + " " + query).uniqueResult();
+        config.cerrarSession();
+        return entity;
 	}
 }

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Biblioteca implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne(cascade= {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name="idLibro")
 	private Libro libro;
 	
@@ -79,10 +80,6 @@ public class Biblioteca implements Serializable {
 
 	@Override
 	public String toString() {
-		String text = "Biblioteca id= " + id + ", fechaAlta= " + fechaAlta + ", estado= " + estado;
-	
-		if(libro != null) text += ", libro= " + libro;
-		
-		return text;
+		return "\nBiblioteca [id=" + id + ", libro=" + libro + ", fechaAlta=" + fechaAlta + ", estado=" + estado + "]";
 	}
 }

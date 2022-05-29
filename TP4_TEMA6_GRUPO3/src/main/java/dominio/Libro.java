@@ -1,14 +1,14 @@
 package dominio;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,17 +16,18 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 public class Libro implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column(unique = true)
 	private int isbn;
 	
 	private String titulo;
@@ -37,13 +38,13 @@ public class Libro implements Serializable {
 	
 	private int cantidadPaginas;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne(cascade= {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name="idAutor")
 	private Autor autor;
 	
 	private String descripcion;
 	
-	@ManyToMany(cascade= {CascadeType.ALL})
+	@ManyToMany(cascade= {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinTable(name="libros_x_generos",
 	    joinColumns=
 	        @JoinColumn(name="id_libro"),
@@ -66,6 +67,14 @@ public class Libro implements Serializable {
 		this.autor = autor;
 		this.descripcion = descripcion;
 		this.generos = generos;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public int getIsbn() {
@@ -138,12 +147,9 @@ public class Libro implements Serializable {
 
 	@Override
 	public String toString() {
-		String text = "Libro isbn= " + isbn + ", titulo= " + titulo + ", fechaLanzamiento= " + fechaLanzamiento + ", idioma= "
-				+ idioma + ", cantidadPaginas= " + cantidadPaginas + ", descripcion= " + descripcion;
-		
-		if(autor != null) text += ", autor= " + autor;
-		
-		return text;
+		return "\nLibro [id=" + id + ", isbn=" + isbn + ", titulo=" + titulo + ", fechaLanzamiento=" + fechaLanzamiento
+				+ ", idioma=" + idioma + ", cantidadPaginas=" + cantidadPaginas + ", autor=" + autor + ", descripcion="
+				+ descripcion + ", generos=" + generos + "]";
 	}
 	
 }

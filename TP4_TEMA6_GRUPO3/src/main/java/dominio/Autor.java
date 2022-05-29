@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +27,7 @@ public class Autor implements Serializable {
 	
 	private String apellido;
 	
-	@ManyToOne(cascade= {CascadeType.ALL})
+	@ManyToOne(cascade= {CascadeType.ALL}, fetch = FetchType.EAGER)
 	@JoinColumn(name="idNacionalidad")
 	private Nacionalidad nacionalidad;
 	
@@ -84,11 +85,8 @@ public class Autor implements Serializable {
 
 	@Override
 	public String toString() {
-		String text = "Autor id= " + id + ", nombre= " + nombre + ", apellido= " + apellido + ", email= " + email; 
-		
-		if(nacionalidad != null) text += ", nacionalidad= " + nacionalidad.toString();
-			
-		return  text;
+		return "\nAutor [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", nacionalidad=" + nacionalidad
+				+ ", email=" + email + "]";
 	}
 	
 	
