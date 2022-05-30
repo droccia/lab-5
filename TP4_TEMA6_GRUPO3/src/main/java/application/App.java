@@ -12,8 +12,8 @@ public class App
 	    consignas.punto2();
 	    consignas.punto3();
 	    consignas.punto4();
-	    //consignas.punto5();
-	    //consignas.punto6();
+	    consignas.punto5();
+	    consignas.punto6();
 	    ConfigHibernate.getInstance().cerrarSessionFactory();
     }
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import dao.DaoHibernate;
 import dominio.Autor;
 import dominio.Biblioteca;
+import dominio.Genero;
 import dominio.Libro;
 import dominio.Nacionalidad;
 
@@ -54,12 +55,20 @@ public class Consignas {
 	
 	//Mostrar el libro que tenga el mayor número de ISBN
 	public void punto5() {
-		
-		
+		System.out.println("\n5) Mostrar el libro que tenga el mayor número de ISBN");
+		DaoHibernate<Libro> daoLib = new DaoHibernate<Libro>(Libro.class);
+		int result = daoLib.selectMaxByField("isbn");
+		System.out.print("ISBN: " + result);
 	}
 
 	//Mostrar la cantidad de libros que existen para cada género.
 	public void punto6() {
+		System.out.println("\n6) Mostrar la cantidad de libros que existen para cada género");
+		DaoHibernate<Genero> daoGenero = new DaoHibernate<Genero>(Genero.class);
+		List<Object[]> results = daoGenero.selectCantLibrosByGenero();
 		
+		for (Object[] result: results) {
+			System.out.print("ID: " + result[0].toString() + " | Descripcion: "+ result[1].toString() + " | Cantidad: " + result[2].toString() + "\n");
+		}
 	}
 }

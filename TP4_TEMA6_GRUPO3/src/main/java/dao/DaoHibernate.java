@@ -71,4 +71,23 @@ public class DaoHibernate<T extends Serializable> {
         config.cerrarSession();
         return entity;
 	}
+	
+	public int selectMaxByField(String field) {
+		ConfigHibernate config = ConfigHibernate.getInstance();
+		Session session= config.abrirConexion();
+		session.beginTransaction();
+        Integer result = (Integer) session.createQuery("SELECT MAX" + "(" + field + ")" + "FROM " + entityClass.getName()).uniqueResult();
+        config.cerrarSession();
+        return result;
+	}
+	
+	public List<Object[]> selectCantLibrosByGenero(){
+		ConfigHibernate config = ConfigHibernate.getInstance();
+		Session session= config.abrirConexion();
+		session.beginTransaction();
+        List<Object[]> result = (List<Object[]>) session.createQuery("SELECT ge.id, ge.descripcion, (SELECT COUNT(*) FROM Libro lib " + 
+        		"INNER JOIN lib.generos lg WHERE lg.id = ge.id) AS Cantidad " + "FROM " + entityClass.getName() + " ge").list();
+        config.cerrarSession();
+        return result;
+	}
 }
