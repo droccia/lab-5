@@ -1,4 +1,4 @@
-package dominio;
+package EJ_MATI;
 
 public class ObraSocial {
 	public int ID;

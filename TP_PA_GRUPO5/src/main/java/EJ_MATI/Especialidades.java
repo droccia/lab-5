@@ -1,4 +1,4 @@
-package dominio;
+package EJ_MATI;
 
 public class Especialidades {
 	public int ID;

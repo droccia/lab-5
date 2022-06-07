@@ -1,6 +1,6 @@
-package dominio;
+package EJ_MATI;
 
-public class Doctor {
+public class Pacientes {
 	public int ID;
 	public String nombre;
 	public String apellido;
