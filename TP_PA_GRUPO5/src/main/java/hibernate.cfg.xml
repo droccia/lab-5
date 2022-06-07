@@ -13,8 +13,7 @@
         <property name="show_sql">true</property>
         <mapping class="ejercicio2.ClienteBanco"/>
         <mapping class="ejercicio2.TarjetaCredito"/>
-        
-        
-        
+        <mapping class="ejercicio3.Director"/>
+        <mapping class="ejercicio3.Pelicula"/>
     </session-factory>
 </hibernate-configuration>
