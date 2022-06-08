@@ -10,9 +10,11 @@ public class app {
 		VehiculoEmpresa vehiculo = new VehiculoEmpresa("Fiat", "Palio", "2015");
 		Empleado empleado = new Empleado("Matias", "Sanchez", "Comisionista", vehiculo);
 		
-		dao.create(empleado);
+		empleado.setID(dao.create(empleado));
 		
-		System.out.print(empleado.toString());
+		Empleado empleadoSaved = dao.readOne(empleado.getID());
+		
+		System.out.print(empleadoSaved.toString());
 	}
 
 }

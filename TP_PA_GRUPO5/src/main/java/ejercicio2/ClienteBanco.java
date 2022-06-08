@@ -2,10 +2,12 @@ package ejercicio2;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,9 +38,9 @@ public class ClienteBanco implements Serializable {
 	
 	private String banco;
 	
-	@OneToMany(cascade = {CascadeType.ALL})
+	@OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
 	@JoinColumn(name="id_cliente_banco")
-	private List<TarjetaCredito> tarjetas;
+	private List<TarjetaCredito> tarjetas = new ArrayList<TarjetaCredito>();
 
 	public ClienteBanco() {}
 
@@ -113,6 +115,13 @@ public class ClienteBanco implements Serializable {
 	
 	public void setTarjetas(List<TarjetaCredito> tarjetas) {
 		this.tarjetas = tarjetas;
+	}
+	
+	public void GetAllDatos() {
+		System.out.print(this.toString() + "\n");
+		for (TarjetaCredito tarjeta : this.tarjetas) {
+			System.out.print(tarjeta.toString() + "\n");
+		}
 	}
 
 	@Override

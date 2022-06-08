@@ -19,9 +19,12 @@ public class App {
 		
 		cliente.setTarjetas(tarjetas);
 		
-		dao.create(cliente);
+		cliente.setId(dao.create(cliente));
 		
-		System.out.print(cliente.toString());
+		ClienteBanco clienteSaved = dao.readOne(cliente.getId());
+		
+		clienteSaved.GetAllDatos();
+		
 	}
 
 }

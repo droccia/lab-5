@@ -17,5 +17,8 @@
         <mapping class="ejercicio2.TarjetaCredito"/>
         <mapping class="ejercicio3.Director"/>
         <mapping class="ejercicio3.Pelicula"/>
+        <mapping class="ejercicio4.Cliente"/>
+        <mapping class="ejercicio4.Producto"/>
+        <mapping class="ejercicio4.Ventas"/>
     </session-factory>
 </hibernate-configuration>
