@@ -2,6 +2,7 @@ package dominio;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +15,13 @@ public class Prestamo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private Biblioteca biblioteca;
 	private date fechaPrestamo;
 	private int cantidadDias;
+	
+	@OneToOne(cascade = {CascadeType.ALL})
+	@JoinColumn(name = "cliente_id")
 	private Clientes cliente;
 	
 	

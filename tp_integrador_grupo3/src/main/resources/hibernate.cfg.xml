@@ -17,6 +17,8 @@
         <mapping class="dominio.Autor"></mapping>
         <mapping class="dominio.Nacionalidad"></mapping>
         <mapping class="dominio.Biblioteca"></mapping>
+        <mapping class="dominio.Clientes"></mapping>
+        <mapping class="dominio.Prestamo"></mapping>
         
     </session-factory>
 </hibernate-configuration>

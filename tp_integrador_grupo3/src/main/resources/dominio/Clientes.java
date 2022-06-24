@@ -15,14 +15,15 @@ public class Clientes implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
 	private String DNI;
 	private String nombre;
 	private String apellido;
-	private Nacionalidad nacionalidad;
+	private String nacionalidad;
 	private String email;
 	private String direccion;
 	private String localidad;
 	private String telefono;
 	private date fechaNacimiento;
+	
+	
 }
