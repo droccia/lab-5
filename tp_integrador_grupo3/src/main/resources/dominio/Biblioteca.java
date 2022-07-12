@@ -70,10 +70,6 @@ public class Biblioteca implements Serializable {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
-	
-	public String GetDatosPunto2() {
-		return "\nId: " + id + "\nFecha alta: " + fechaAlta + "\nTitulo libro: " + libro.getTitulo() + "\n";
-	}
 
 	@Override
 	public String toString() {

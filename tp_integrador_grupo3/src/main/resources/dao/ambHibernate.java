@@ -6,36 +6,45 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
-import entidad.Usuario;
-
-public class ConfigHibernate {
-
+public class ambHibernate {
+	
 	private SessionFactory sessionFactory;
 	private Session session;
-
-	public ConfigHibernate()
-	{
+	
+	public ambHibernate() {
 		Configuration configuration = new Configuration();
         configuration.configure();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        session = sessionFactory.openSession();
+        session.beginTransaction();
 	}
 	
-	public Session abrirConexion()
-	{
-		session=sessionFactory.openSession();
-		return session;
+	private void closeSession() {
+		session.getTransaction().commit();    
+	    session.close();
+	    sessionFactory.close();
 	}
 	
-	public void cerrarSession()
+	public static void Add(T entity)
 	{
-		session.close();
-		cerrarSessionFactory();
+	    session.save(entity);
+	    
+	    this.closeSession();
 	}
 	
 	
-	public void cerrarSessionFactory()
+	public static void Update(T entity)
 	{
-		sessionFactory.close();
+        session.update(entity);
+        
+        this.closeSession();
+	}
+	
+	public static void Delete(T entity)
+	{
+        session.delete(entity);
+        
+        this.closeSession();
 	}
 }
